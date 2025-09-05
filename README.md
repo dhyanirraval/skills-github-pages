@@ -1,3 +1,52 @@
+## Genesys Cloud Embeddable Framework — Minimal Media Bar Embed
+
+This repo contains a minimal static example that embeds the Genesys media bar (embedded client) using the official Genesys Cloud Embeddable Framework.
+
+Important: You need a Genesys Cloud org and an OAuth client configured with the appropriate scopes. You also need the Embeddable Framework integration set up in your org if you plan to use a private deployment with a custom `framework.js`.
+
+### Files
+
+- `public/index.html`: Simple page with an `<iframe>` that loads the Embeddable Framework client.
+- `public/framework.example.js`: Example config stub for private deployments (rename to `framework.js` when uploading in Genesys admin > Integrations > Private Genesys Cloud Embeddable Framework).
+
+### Quick start (public deployment URL)
+
+1) Replace `<YOUR_REGION_HOST>` and optional query params in `public/index.html` as needed. Common region hosts:
+
+- `apps.usw2.pure.cloud`
+- `apps.usw1.pure.cloud`
+- `apps.use2.pure.cloud`
+- `apps.euw2.pure.cloud`
+- `apps.apse2.pure.cloud`
+- `apps.apne2.pure.cloud`
+
+2) Serve the static files:
+
+```bash
+npx serve public -l 5173
+```
+
+3) Open the served page, authenticate to your Genesys Cloud org when prompted.
+
+### Private deployment (upload `framework.js`)
+
+If you’re building a private deployment, create your `framework.js` based on `public/framework.example.js`, then in Genesys Cloud:
+
+- Admin > Integrations > Add “Private Genesys Cloud Embeddable Framework”
+- Upload your `framework.js`
+- Restrict/allow embedding domains if your org enforces it
+
+### Key docs
+
+- Genesys Cloud Embeddable Framework overview: `https://help.mypurecloud.com/articles/about-genesys-cloud-embeddable-framework/`
+- Add a Private Embeddable Framework integration: `https://help.mypurecloud.com/articles/add-a-private-genesys-cloud-embeddable-framework-integration/`
+- Release notes: `https://help.mypurecloud.com/articles/release-notes-for-genesys-cloud-embeddable-framework/`
+
+Notes:
+
+- If your org has “Restrict Genesys Cloud Embedding” enabled, add your host domain to “Allow Embeddable Domain(s)”.
+- For WebRTC audio, ensure a Genesys WebRTC phone is assigned and browser permissions are granted.
+
 <header>
 
 <!--

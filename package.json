@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "genesys-cloud-webrtc-sdk": "^11.3.1"
+  }
+}
